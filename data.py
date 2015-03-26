@@ -25,6 +25,13 @@ def index(req):
     sensor = parameters.getfirst("sensor")
     if sensor in ["temperature", "temp"]:
     	output += csv_convert(DUMPER.get_temperature_readings())
-
-
+    elif sensor in ["battery", "batt", "batts"]:
+        output += csv_convert(DUMPER.get_battery_readings())
+    elif sensor in ["accelerometer", "accel"]:
+        if not "node" in parameters.keys():
+            return "Must specify node for this sensor type"
+        node = parameters.getfirst("node")
+        output += csv_convert(DUMPER.get_accelerometer_readings(node))
+    else:
+        output += "Invalid sensor type"
     return output

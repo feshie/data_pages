@@ -11,6 +11,17 @@ def index(req):
     if sensor in ["temperature", "temp"]:
         url = BASE_URL + "?sensor=temp"
         title = BASE_TITLE + "Temperature"
+    elif sensor in ["battery", "batt", "batts"]:
+        url = BASE_URL + "?sensor=batt"
+        title = BASE_TITLE + "Battery"
+    elif sensor in ["accelerometer", "accel"]:
+        if not "node" in parameters.keys():
+            return "Must specify node for this sensor type"
+        node = parameters.getfirst("node")
+        url = BASE_URL + "?sensor=accel&node=" + node
+        title = "Accelerometer:" + node
+    else:
+        return "Unknown sensor type"
     output = ""
     output += """
     <!DOCTYPE html>
