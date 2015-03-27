@@ -35,6 +35,16 @@ def index(req):
             return "Must specify adc_id for this sensor type"
         adc = parameters.getfirst("adc_id")
         output += csv_convert(DUMPER.get_adc_readings(adc))
+    elif sensor in ["onewire", "ow", "one-wire"]:
+        if not "node" in parameters.keys():
+            return "Must specify node for this sensor type"
+        node = parameters.getfirst("node")
+        output += csv_convert(DUMPER.get_onewire_readings(node))
+    elif sensor in ["water", "wp", "smart-analog"]:
+        if not "node" in parameters.keys():
+            return "Must specify node for this sensor type"
+        node = parameters.getfirst("node")
+        output += csv_convert(DUMPER.get_analog_smart_readings(node))
     else:
         output += "Invalid sensor type"
     req.content_type = "text/csvi"

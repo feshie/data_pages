@@ -26,6 +26,18 @@ def index(req):
         adc = parameters.getfirst("adc_id")
         title = "ADC %s" % adc
         url = BASE_URL + "?sensor=adc&adc_id=" + adc
+    elif sensor in ["onewire", "ow", "one-wire"]:
+        if not "node" in parameters.keys():
+            return "Must specify node for this sensor type"
+        node = parameters.getfirst("node")  
+        title = "One Wire:" + node 
+        url = BASE_URL + "?sensor=ow&node=" + node
+    elif sensor in ["water", "wp", "smart-analog"]:
+        if not "node" in parameters.keys():
+            return "Must specify node for this sensor type"
+        node = parameters.getfirst("node")
+        title = "Water pressure:" + node
+        url = BASE_URL + "?sensor=wp&node=" + node
     else:
         return "Unknown sensor type"
     output = ""
