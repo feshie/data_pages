@@ -34,6 +34,7 @@ def index(req):
 		output += "<td><a href = \"graph.py?test&sensor=accel&node=%s\">Accelerometer</a></td>" % node
 		output += "<td><a href = \"graph.py?test&sensor=ow&node=%s\">One Wire</a></td>" % node
 		output += "<td><a href = \"graph.py?test&sensor=wp&node=%s\">Water Pressure</a></td>" % node
+		output += "<td><a href = \"graph.py?test&sensor=chain&node=%s\">Chain</a></td>" % node
 		output +="</tr>"
 	output +="</table>"
 	output +="</body></html>"

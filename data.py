@@ -45,6 +45,11 @@ def index(req):
             return "Must specify node for this sensor type"
         node = parameters.getfirst("node")
         output += csv_convert(DUMPER.get_analog_smart_readings(node))
+    elif sensor in ["chain", "tad"]:
+        if not "node" in parameters.keys():
+            return "Must specify node for this sensor type"
+        node = parameters.getfirst("node")
+        output += csv_convert(DUMPER.get_chain_readings(node))
     else:
         output += "Invalid sensor type"
     req.content_type = "text/csvi"

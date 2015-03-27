@@ -38,6 +38,12 @@ def index(req):
         node = parameters.getfirst("node")
         title = "Water pressure:" + node
         url = BASE_URL + "?sensor=wp&node=" + node
+    elif sensor in ["chain", "tad"]:
+        if not "node" in parameters.keys():
+            return "Must specify node for this sensor type"
+        node = parameters.getfirst("node")
+        title = "Chain data:" + node
+        url = BASE_URL + "?sensor=chain&node=" + node
     else:
         return "Unknown sensor type"
     output = ""
