@@ -20,6 +20,12 @@ def index(req):
         node = parameters.getfirst("node")
         url = BASE_URL + "?sensor=accel&node=" + node
         title = "Accelerometer:" + node
+    elif sensor in ["analog", "adc", "adcs"]:
+        if not "adc_id" in parameters.keys():
+            return "Must specify adc_id for this sensor type"
+        adc = parameters.getfirst("adc_id")
+        title = "ADC %s" % adc
+        url = BASE_URL + "?sensor=adc&adc_id=" + adc
     else:
         return "Unknown sensor type"
     output = ""
