@@ -5,6 +5,7 @@ import sys
 sys.path.append("/home/pjb/database-scripts/")
 
 from data_dump import DataDump, csv_convert
+from aliases import *
 
 LIVE_CONFIG = "/home/pjb/database-scripts/db_test.ini"
 TEST_CONFIG = "/home/pjb/database-scripts/db_test.ini"
@@ -21,33 +22,35 @@ def index(req):
     	DUMPER = DataDump(LIVE_CONFIG, CRITICAL)
     
     sensor = parameters.getfirst("sensor")
-    if sensor in ["temperature", "temp"]:
+    if sensor in TEMPERATURE_ALIASES:
     	output += csv_convert(DUMPER.get_temperature_readings())
-    elif sensor in ["battery", "batt", "batts"]:
+    elif sensor in BATTERY_ALIASES:
         output += csv_convert(DUMPER.get_battery_readings())
-    elif sensor in ["moisture"]:
+    elif sensor in MOISTURE_ALIASES:
         output += csv_convert(DUMPER.get_moisture_readings())
-    elif sensor in ["accelerometer", "accel"]:
+    elif sensor in RAIN_ALIASES:
+        output += csv_convert(DUMPER.get_rain_readings())
+    elif sensor in ACCELEROMETER_ALIASES:
         if not "node" in parameters.keys():
             return "Must specify node for this sensor type"
         node = parameters.getfirst("node")
         output += csv_convert(DUMPER.get_accelerometer_readings(node))
-    elif sensor in ["analog", "adc", "adcs"]:
+    elif sensor in ADC_ALIASES:
         if not "adc_id" in parameters.keys():
             return "Must specify adc_id for this sensor type"
         adc = parameters.getfirst("adc_id")
         output += csv_convert(DUMPER.get_adc_readings(adc))
-    elif sensor in ["onewire", "ow", "one-wire"]:
+    elif sensor in ONE_WIRE_ALISES:
         if not "node" in parameters.keys():
             return "Must specify node for this sensor type"
         node = parameters.getfirst("node")
         output += csv_convert(DUMPER.get_onewire_readings(node))
-    elif sensor in ["water", "wp", "smart-analog"]:
+    elif sensor in WATER_ALIASES:
         if not "node" in parameters.keys():
             return "Must specify node for this sensor type"
         node = parameters.getfirst("node")
         output += csv_convert(DUMPER.get_analog_smart_readings(node))
-    elif sensor in ["chain", "tad"]:
+    elif sensor in CHAIN_ALIASES:
         if not "node" in parameters.keys():
             return "Must specify node for this sensor type"
         node = parameters.getfirst("node")

@@ -1,16 +1,11 @@
 from mod_python import util
 
+from aliases import *
+
 BASE_URL = "http://data.mountainsensing.org/feshie/data/data.py"
 BASE_TITLE = "Feshie Mountain Sensing: "
 
-TEMPERATURE_ALIASES = ["temperature", "temp"]
-BATTERY_ALIASES = ["battery", "batt", "batts"]
-ACCELEROMETER_ALIASES = ["accelerometer", "accel"]
-ADC_ALIASES = ["analog", "adc", "adcs"]
-ONE_WIRE_ALISES = ["onewire", "ow", "one-wire", "spider"]
-WATER_ALIASES = ["water", "wp", "smart-analog"]
-CHAIN_ALIASES = ["chain", "tad"]
-MOISTURE_ALIASES = ["moisture", "soil"]
+
 
 def index(req):
     parameters = util.FieldStorage(req, keep_blank_values=1)
@@ -56,6 +51,9 @@ def index(req):
     elif sensor in MOISTURE_ALIASES:
         url = BASE_URL + "?sensor=moisture"
         title = BASE_TITLE + "Moisture Data"
+    elif sensor in RAIN_ALIASES:
+        url = BASE_URL + "?sensor=rain"
+        title = BASE_TITLE + "Rain Data"
     else:
         return "Unknown sensor type"
     output = ""
@@ -99,6 +97,8 @@ def index(req):
         output += "\"Pressure (mb)\",\n"
     elif sensor in ACCELEROMETER_ALIASES:
         output +="\"Angle (degrees)\",\n"
+    elif sensor in RAIN_ALIASES:
+        output += "\"Rainfall (mm)\",\n"
     elif sensor in CHAIN_ALIASES:
         output += "\"Angle (degrees)\",\n"
         output += "series: {'Temp 1':{axis:'y2'}, 'Temp 2':{axis:'y2'}, 'Temp 3':{axis:'y2'}, 'Temp 4':{axis: 'y2'},},axes:{y2:{labelsKMB: true}},y2label: 'Temperature (C)',"

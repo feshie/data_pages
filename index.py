@@ -25,6 +25,7 @@ def index(req):
 	<a href="graph.py?test&sensor=adc&adc_id=1">ADC 1</a><br/>
 	<a href="graph.py?test&sensor=adc&adc_id=2">ADC 2</a><br/>
 	<a href="graph.py?test&sensor=moisture">Moisture</a><br/>
+	<a href="graph.py?test&sensor=rain">Rainfall</a><br/>
 	"""
 	
 	TEST_NODES = TEST_DUMPER.get_nodes()
