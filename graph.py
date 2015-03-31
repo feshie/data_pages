@@ -98,7 +98,7 @@ def index(req):
     elif sensor in ACCELEROMETER_ALIASES:
         output +="\"Angle (degrees)\",\n"
     elif sensor in RAIN_ALIASES:
-        output += "\"Rainfall (mm)\",\n"
+        output += "\"Rainfall (mm/h)\",\n"
     elif sensor in CHAIN_ALIASES:
         output += "\"Angle (degrees)\",\n"
         output += "series: {'Temp 1':{axis:'y2'}, 'Temp 2':{axis:'y2'}, 'Temp 3':{axis:'y2'}, 'Temp 4':{axis: 'y2'},},axes:{y2:{labelsKMB: true}},y2label: 'Temperature (C)',"
