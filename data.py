@@ -6,7 +6,7 @@ sys.path.append("/home/pjb/database-scripts/")
 
 from data_dump import DataDump, csv_convert
 
-LIVE_CONFIG = "/home/pjb/database-scripts/db.ini"
+LIVE_CONFIG = "/home/pjb/database-scripts/db_test.ini"
 TEST_CONFIG = "/home/pjb/database-scripts/db_test.ini"
 
 def index(req):
@@ -25,6 +25,8 @@ def index(req):
     	output += csv_convert(DUMPER.get_temperature_readings())
     elif sensor in ["battery", "batt", "batts"]:
         output += csv_convert(DUMPER.get_battery_readings())
+    elif sensor in ["moisture"]:
+        output += csv_convert(DUMPER.get_moisture_readings())
     elif sensor in ["accelerometer", "accel"]:
         if not "node" in parameters.keys():
             return "Must specify node for this sensor type"
