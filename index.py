@@ -10,7 +10,7 @@ def index(req):
 	output = """<html><head>
 		<title>Feshie Data Overview</title>
 		</head>
-		<body><h1>Feshie Data Overview</h1>
+		<body><h1>Feshie Data Overview</h1><div style="width:50%; float:left; background-color:#E78B7E">
 		<h2>Test Data</h2>"""
 	TEST_DUMPER = DataDump(TEST_CONFIG)
 	TEST_LATEST = TEST_DUMPER.get_latest_readings()
@@ -38,11 +38,11 @@ def index(req):
 		output += "<td><a href = \"graph.py?test&sensor=wp&node=%s\">Water Pressure</a></td>" % node
 		output += "<td><a href = \"graph.py?test&sensor=chain&node=%s\">Chain</a></td>" % node
 		output +="</tr>"
-	output +="</table>"
+	output +="</table></div>"
 
 
 
-	output += "<h2>LIVE Data</h2>"
+	output += "<div style=\"width:50%; float:right; background-color:#A2E382\"><h2>LIVE Data</h2>"
 	LIVE_DUMPER = DataDump(LIVE_CONFIG)
 	LIVE_LATEST = LIVE_DUMPER.get_latest_readings()
 	output += """<table><tr><th>Node</th><th>Latest</th></tr>"""
@@ -69,6 +69,6 @@ def index(req):
 		output += "<td><a href = \"graph.py?test&sensor=wp&node=%s\">Water Pressure</a></td>" % node
 		output += "<td><a href = \"graph.py?test&sensor=chain&node=%s\">Chain</a></td>" % node
 		output +="</tr>"
-	output +="</table>"
+	output +="</table></div>"
 	output +="</body></html>"
 	return output
