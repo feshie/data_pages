@@ -2,6 +2,7 @@ import sys
 sys.path.append("/home/pjb/database-scripts/")
 
 from data_dump import DataDump
+from datetime import datetime
 
 LIVE_CONFIG = "/home/pjb/database-scripts/db.ini"
 TEST_CONFIG = "/home/pjb/database-scripts/db_test.ini"
@@ -10,7 +11,11 @@ def index(req):
 	output = """<html><head>
 		<title>Feshie Data Overview</title>
 		</head>
-		<body><h1>Feshie Data Overview</h1><div style="width:50%; float:left; background-color:#E78B7E">
+		<body><h1>Feshie Data Overview</h1>
+		<p>As at """
+	output += str(datetime.utcnow())
+	output += """</p>
+		<div style="width:50%; float:left; background-color:#E78B7E">
 		<h2>Test Data</h2>"""
 	TEST_DUMPER = DataDump(TEST_CONFIG)
 	TEST_LATEST = TEST_DUMPER.get_latest_readings()
