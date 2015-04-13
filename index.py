@@ -14,7 +14,7 @@ def index(req):
 		<body><h1>Feshie Data Overview</h1>
 		<p>As at """
 	output += str(datetime.utcnow())
-	output += """</p>
+	output += """ UTC</p>
 		<div style="width:50%; float:left; background-color:#E78B7E">
 		<h2>Test Data</h2>"""
 	TEST_DUMPER = DataDump(TEST_CONFIG)
