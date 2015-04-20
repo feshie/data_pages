@@ -56,12 +56,12 @@ def index(req):
 	output +="</table>"
 	output += """
 	<h3>Combined Graphs</h3>
-	<a href="graph.py?test&sensor=temp">Temperature</a><br/>
-	<a href="graph.py?test&sensor=batt">Battery</a><br/>
-	<a href="graph.py?test&sensor=adc&adc_id=1">ADC 1</a><br/>
-	<a href="graph.py?test&sensor=adc&adc_id=2">ADC 2</a><br/>
-	<a href="graph.py?test&sensor=moisture">Moisture</a><br/>
-	<a href="graph.py?test&sensor=rain">Rainfall</a><br/>
+	<a href="graph.py?sensor=temp">Temperature</a><br/>
+	<a href="graph.py?sensor=batt">Battery</a><br/>
+	<a href="graph.py?sensor=adc&adc_id=1">ADC 1</a><br/>
+	<a href="graph.py?sensor=adc&adc_id=2">ADC 2</a><br/>
+	<a href="graph.py?sensor=moisture">Moisture</a><br/>
+	<a href="graph.py?sensor=rain">Rainfall</a><br/>
 	"""
 	
 	LIVE_NODES = LIVE_DUMPER.get_nodes()
@@ -69,10 +69,10 @@ def index(req):
 	output += """<table>"""
 	for node in LIVE_NODES:
 		output += "<tr><td>%s</td>" % node
-		output += "<td><a href = \"graph.py?test&sensor=accel&node=%s\">Accelerometer</a></td>" % node
-		output += "<td><a href = \"graph.py?test&sensor=ow&node=%s\">Spider</a></td>" % node
-		output += "<td><a href = \"graph.py?test&sensor=wp&node=%s\">Water Pressure</a></td>" % node
-		output += "<td><a href = \"graph.py?test&sensor=chain&node=%s\">Chain</a></td>" % node
+		output += "<td><a href = \"graph.py&sensor=accel&node=%s\">Accelerometer</a></td>" % node
+		output += "<td><a href = \"graph.py&sensor=ow&node=%s\">Spider</a></td>" % node
+		output += "<td><a href = \"graph.py&sensor=wp&node=%s\">Water Pressure</a></td>" % node
+		output += "<td><a href = \"graph.py&sensor=chain&node=%s\">Chain</a></td>" % node
 		output +="</tr>"
 	output +="</table></div>"
 	output +="</body></html>"
