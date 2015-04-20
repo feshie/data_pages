@@ -7,7 +7,7 @@ sys.path.append("/home/pjb/database-scripts/")
 from data_dump import DataDump, csv_convert
 from aliases import *
 
-LIVE_CONFIG = "/home/pjb/database-scripts/db_test.ini"
+LIVE_CONFIG = "/home/mountainsensing/database-scripts/db.ini"
 TEST_CONFIG = "/home/pjb/database-scripts/db_test.ini"
 
 def index(req):
