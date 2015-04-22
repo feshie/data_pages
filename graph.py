@@ -9,6 +9,7 @@ BASE_TITLE = "Feshie Mountain Sensing: "
 
 def index(req):
     parameters = util.FieldStorage(req, keep_blank_values=1)
+    url = BASE_URL
     if not "sensor" in parameters.keys():
         return "Must specify sensor type"
     sensor = parameters.getfirst("sensor")
@@ -56,6 +57,8 @@ def index(req):
         title = BASE_TITLE + "Rain Data"
     else:
         return "Unknown sensor type"
+    if "test" in parameters.keys():
+        url += "&test"
     output = ""
     output += """
     <!DOCTYPE html>
