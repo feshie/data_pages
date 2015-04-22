@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/home/pjb/database-scripts/")
+sys.path.append("/home/mountainsensing/database-scripts/")
 
 from data_dump import DataDump
 from datetime import datetime
@@ -69,10 +69,10 @@ def index(req):
 	output += """<table>"""
 	for node in LIVE_NODES:
 		output += "<tr><td>%s</td>" % node
-		output += "<td><a href = \"graph.py&sensor=accel&node=%s\">Accelerometer</a></td>" % node
-		output += "<td><a href = \"graph.py&sensor=ow&node=%s\">Spider</a></td>" % node
-		output += "<td><a href = \"graph.py&sensor=wp&node=%s\">Water Pressure</a></td>" % node
-		output += "<td><a href = \"graph.py&sensor=chain&node=%s\">Chain</a></td>" % node
+		output += "<td><a href = \"graph.py?sensor=accel&node=%s\">Accelerometer</a></td>" % node
+		output += "<td><a href = \"graph.py?sensor=ow&node=%s\">Spider</a></td>" % node
+		output += "<td><a href = \"graph.py?sensor=wp&node=%s\">Water Pressure</a></td>" % node
+		output += "<td><a href = \"graph.py?sensor=chain&node=%s\">Chain</a></td>" % node
 		output +="</tr>"
 	output +="</table></div>"
 	output +="</body></html>"
