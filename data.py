@@ -2,7 +2,7 @@ from mod_python import util
 from logging import CRITICAL
 
 import sys
-sys.path.append("/home/pjb/database-scripts/")
+sys.path.append("/home/mountainsensing/database-scripts/")
 
 from data_dump import DataDump, csv_convert
 from aliases import *
