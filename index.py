@@ -57,12 +57,12 @@ def index(req):
 	output +="</table>"
 	output += """
 	<h3>Combined Graphs</h3>
-	<a href="graph.py?sensor=temp">Temperature</a><br/>
-	<a href="graph.py?sensor=batt">Battery</a><br/>
-	<a href="graph.py?sensor=adc&adc_id=1">ADC 1</a><br/>
-	<a href="graph.py?sensor=adc&adc_id=2">ADC 2</a><br/>
-	<a href="graph.py?sensor=moisture">Moisture</a><br/>
-	<a href="graph.py?sensor=rain">Rainfall</a><br/>
+	<a href="graph.py?sensor=temp">Temperature</a> <a href="data.py?sensor=temp">(csv)</a><br/>
+	<a href="graph.py?sensor=batt">Battery</a> <a href="data.py?sensor=batt">(csv)</a><br/>
+	<a href="graph.py?sensor=adc&adc_id=1">ADC 1</a> <a href="data.py?sensor=adc&adc_id=1">(csv)</a><br/>
+	<a href="graph.py?sensor=adc&adc_id=2">ADC 2</a> <a href="data.py?sensor=adc&adc_id=2">(csv)</a><br/>
+	<a href="graph.py?sensor=moisture">Moisture</a> <a href="data.py?sensor=moisture"> (csv)</a><br/>
+	<a href="graph.py?sensor=rain">Rainfall</a> <a href="data.py?sensor=rain">(csv)</a><br/>
 	"""
 	
 	LIVE_NODES = LIVE_DUMPER.get_nodes()
