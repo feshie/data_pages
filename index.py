@@ -1,6 +1,7 @@
 import sys
 sys.path.append("/home/mountainsensing/database-scripts/")
 
+
 from data_dump import DataDump
 from datetime import datetime
 
@@ -21,7 +22,7 @@ def index(req):
 	TEST_LATEST = TEST_DUMPER.get_latest_readings()
 	output += """<table><tr><th>Node</th><th>Latest</th></tr>"""
 	for node in TEST_LATEST:
-		output +="<tr><td>%s</td><td>%s</td></tr>"% (node[0], node[1])
+		output +="<tr><td>%s</td><td>%s</td></tr>"% (node[0], node[2])
 	output +="</table>"
 	output += """
 	<h3>Combined Graphs</h3>
@@ -52,7 +53,7 @@ def index(req):
 	LIVE_LATEST = LIVE_DUMPER.get_latest_readings()
 	output += """<table><tr><th>Node</th><th>Latest</th></tr>"""
 	for node in LIVE_LATEST:
-		output +="<tr><td>%s</td><td>%s</td></tr>"% (node[0], node[1])
+		output +="<tr><td>%s (%s)</td><td>%s</td></tr>"% (node[1], node[0], node[2])
 	output +="</table>"
 	output += """
 	<h3>Combined Graphs</h3>
