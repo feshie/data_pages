@@ -55,6 +55,11 @@ def index(req):
             return "Must specify node for this sensor type"
         node = parameters.getfirst("node")
         output += csv_convert(DUMPER.get_chain_readings(node))
+    elif sensor in CHAIN_TEMPERATURE_ALIASES:
+        if not "node" in parameters.keys():
+            return "Must specify node for this sensor type"
+        node = parameters.getfirst("node")
+        output += csv_convert(DUMPER.get_chain_temperature_readings(node))
     else:
         output += "Invalid sensor type"
     req.content_type = "text/csvi"

@@ -49,6 +49,12 @@ def index(req):
         node = parameters.getfirst("node")
         title = "Chain data:" + node
         url = BASE_URL + "?sensor=chain&node=" + node
+    elif sensor in CHAIN_TEMPERATURE_ALIASES:
+        if not "node" in parameters.keys():
+            return "Must specify node for this sensor type"
+        node = parameters.getfirst("node")
+        title = "Chain Temperature data:" + node
+        url = BASE_URL + "?sensor=chain-temperature&node=" + node
     elif sensor in MOISTURE_ALIASES:
         url = BASE_URL + "?sensor=moisture"
         title = BASE_TITLE + "Moisture Data"
@@ -92,7 +98,7 @@ def index(req):
         lengend: "always",
         showRoller: true,
         ylabel:"""
-    if sensor in TEMPERATURE_ALIASES + ONE_WIRE_ALISES:
+    if sensor in TEMPERATURE_ALIASES + ONE_WIRE_ALISES + CHAIN_TEMPERATURE_ALIASES:
         output += "\"Temperature (c)\",\n"
     elif sensor in BATTERY_ALIASES:
         output += "\"Voltage (V)\",\n"
