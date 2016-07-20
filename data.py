@@ -30,6 +30,12 @@ def index(req):
         output += csv_convert(DUMPER.get_moisture_readings())
     elif sensor in RAIN_ALIASES:
         output += csv_convert(DUMPER.get_rain_readings())
+    elif sensor in MPPT_ALIASES:
+        output += csv_convert(DUMPER.get_mppt_readings())
+    elif sensor in SOC_ALIASES:
+        output += csv_convert(DUMPER.get_soc_readings())
+    elif sensor in SOLAR_CURRENT_ALIASES:
+        output += csv_convert(DUMPER.get_solar_current_readings())
     elif sensor in ACCELEROMETER_ALIASES:
         if not "node" in parameters.keys():
             return "Must specify node for this sensor type"
