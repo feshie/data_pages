@@ -27,6 +27,9 @@ def index(req):
 	<h3>Combined Graphs</h3>
 	<a href="graph.py?test&sensor=temp">Temperature</a><br/>
 	<a href="graph.py?test&sensor=batt">Battery</a><br/>
+	<a href="graph.py?test&sensor=mppt">Max Power Point Tracking</a><br/>
+	<a href="graph.py?test&sensor=soc">State of Charge</a><br/>
+	<a href="graph.py?test&sensor=solar">Solar Charge Current</a><br/>
 	<a href="graph.py?test&sensor=adc&adc_id=1">ADC 1</a><br/>
 	<a href="graph.py?test&sensor=adc&adc_id=2">ADC 2</a><br/>
 	<a href="graph.py?test&sensor=moisture">Moisture</a><br/>
@@ -58,6 +61,9 @@ def index(req):
 	<h3>Combined Graphs</h3>
 	<a href="graph.py?sensor=temp">Temperature</a><br/>
 	<a href="graph.py?sensor=batt">Battery</a><br/>
+	<a href="graph.py?sensor=mppt">Max Power Point Tracking</a><br/>
+	<a href="graph.py?sensor=soc">State of Charge</a><br/>
+	<a href="graph.py?sensor=solar">Solar Charge Current</a><br/>
 	<a href="graph.py?sensor=adc&adc_id=1">ADC 1</a><br/>
 	<a href="graph.py?sensor=adc&adc_id=2">ADC 2</a><br/>
 	<a href="graph.py?sensor=moisture">Moisture</a><br/>
