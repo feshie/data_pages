@@ -19,6 +19,15 @@ def index(req):
     elif sensor in BATTERY_ALIASES:
         url = BASE_URL + "?sensor=batt"
         title = BASE_TITLE + "Battery"
+    elif sensor in MPPT_ALIASES:
+        url = BASE_URL + "?sensor=mppt"
+        title = BASE_TITLE + "Power Point Tracking"
+    elif sensor in SOC_ALIASES:
+        url = BASE_URL + "?sensor=soc"
+        title = BASE_TITLE + "State of Charge"
+    elif sensor in SOLAR_CURRENT_ALIASES:
+        url = BASE_URL + "?sensor=solar"
+        title = BASE_TITLE + "Solar Charge Current"
     elif sensor in ACCELEROMETER_ALIASES:
         if not "node" in parameters.keys():
             return "Must specify node for this sensor type"

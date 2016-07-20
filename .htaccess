@@ -5,4 +5,3 @@ PythonDebug On
 <Files ~ "\.(gif|html|htm|jpg|png|js|css)$">
 	SetHandler default-handler
 </Files>
-
